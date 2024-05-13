@@ -109,3 +109,8 @@ export const loginUser = async (req, res) => {
     });
   }
 };
+
+//USER TEST LOGIC ->
+export const testUser = (req, res) => {
+  res.send("Protected Routes");
+};
