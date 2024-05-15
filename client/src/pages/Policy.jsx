@@ -14,7 +14,7 @@ const Policy = () => {
           />
         </div>
         <div className="col-md-4">
-          <h2>Privacy Policy</h2>
+          <h1 className="bg-dark p-2 text-white text-center">PRIVACY POLICY</h1>
           <p>
             At Shopzy, we are committed to protecting your privacy and ensuring
             the security of your personal information.
