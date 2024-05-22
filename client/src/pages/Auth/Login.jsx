@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useAuth } from "../../context/auth";
@@ -11,6 +12,7 @@ const Login = () => {
   const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   //form function ->
   const handleSubmit = async (e) => {
@@ -28,7 +30,7 @@ const Login = () => {
           token: res.data.token,
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate("/");
+        navigate(location.state || "/");
       } else {
         toast.error(res.data.message);
       }
@@ -79,6 +81,15 @@ const Login = () => {
               </div>
               <button type="submit" className="login-btn">
                 Login
+              </button>
+              <button
+                type="button"
+                className="login-btn mx-2"
+                onClick={() => {
+                  navigate("/forgot-password");
+                }}
+              >
+                Forgot Password
               </button>
             </form>
           </div>

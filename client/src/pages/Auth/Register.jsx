@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
@@ -10,6 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [answer, setAnswer] = useState("");
 
   const navigate = useNavigate();
 
@@ -25,6 +27,7 @@ const Register = () => {
           password,
           phone,
           address,
+          answer,
         }
       );
       if (res && res.data.success) {
@@ -113,6 +116,18 @@ const Register = () => {
                   placeholder="Enter Your Address"
                   required
                   onChange={(e) => setAddress(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="address">Answer</label>
+                <input
+                  type="text"
+                  value={answer}
+                  className="form-control"
+                  id="answer"
+                  placeholder="What is your Favourite sports"
+                  required
+                  onChange={(e) => setAnswer(e.target.value)}
                 />
               </div>
               <button type="submit" className="register-btn">
