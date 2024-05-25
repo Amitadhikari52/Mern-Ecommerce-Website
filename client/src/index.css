@@ -321,3 +321,10 @@
 .forgot-password-link:hover {
   text-decoration: underline;
 }
+
+/* *********************** */
+
+.product-link {
+  text-decoration: none !important;
+  color: black !important;
+}
