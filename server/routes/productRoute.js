@@ -5,7 +5,11 @@ import {
   deleteProduct,
   getProduct,
   getSingleProduct,
+  productCount,
+  productFilters,
+  productList,
   productPhoto,
+  searchProduct,
   updateProduct,
 } from "../controllers/productController.js";
 import formidable from "express-formidable";
@@ -43,5 +47,30 @@ router.put(
   formidable(),
   updateProduct
 );
+
+//filter Product
+router.post("/product-filters", productFilters);
+
+//product counts
+router.get("/product-count", productCount);
+
+//product per page
+router.get("/product-list/:page", productList);
+
+//search product
+router.get("/search/:keyword", searchProduct);
+
+//similar product
+// router.get("/related-product/:pid/:cid", realtedProductController);
+
+//category wise product
+// router.get("/product-category/:slug", productCategoryController);
+
+//payments routes
+//token
+// router.get("/braintree/token", braintreeTokenController);
+
+//payments
+// router.post("/braintree/payment", requireSignIn, brainTreePaymentController);
 
 export default router;
