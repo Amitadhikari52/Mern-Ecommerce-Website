@@ -151,7 +151,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-        <div className="col-md-9">
+        <div className="col-md-9 offset-1">
           <h3 className="text-center">All Products</h3>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (

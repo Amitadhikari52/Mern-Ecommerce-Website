@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -62,7 +64,7 @@ const ProductDetails = () => {
       <hr />
 
       <div className="row container">
-        <h6>Similiar Products</h6>
+        <h6>Similiar Products ➡️</h6>
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similiar Products Found</p>
         )}
@@ -79,6 +81,12 @@ const ProductDetails = () => {
                 <p className="card-text">{p.description.substring(0, 30)}...</p>
                 <p className="card-text"> $ {p.price}</p>
 
+                <button
+                  className="btn btn-primary ms-1"
+                  //   onClick={() => navigate(`/product/${p.slug}`)}
+                >
+                  More Details
+                </button>
                 <button className="btn btn-secondary ms-1">ADD TO CART</button>
               </div>
             </div>

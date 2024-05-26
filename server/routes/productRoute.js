@@ -5,6 +5,7 @@ import {
   deleteProduct,
   getProduct,
   getSingleProduct,
+  productCategory,
   productCount,
   productFilters,
   productList,
@@ -65,7 +66,7 @@ router.get("/search/:keyword", searchProduct);
 router.get("/related-product/:pid/:cid", realtedProduct);
 
 //category wise product
-// router.get("/product-category/:slug", productCategoryController);
+router.get("/product-category/:slug", productCategory);
 
 //payments routes
 //token
