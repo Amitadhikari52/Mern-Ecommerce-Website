@@ -1,4 +1,5 @@
 import userModel from "../models/userModel.js";
+import orderModel from "../models/orderModel.js";
 import { comparePassword, hashPassword } from "../utils/authUtil.js";
 import jwt from "jsonwebtoken";
 
@@ -192,3 +193,43 @@ export const updateProfile = async (req, res) => {
     });
   }
 };
+
+//orders
+export const getOrders = async (req, res) => {
+  try {
+    const orders = await orderModel
+      .find({ buyer: req.user._id })
+      .populate("products", "-photo")
+      .populate("buyer", "name");
+    // .sort({ createdAt: "-1" });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while getting orders",
+      error,
+    });
+  }
+};
+
+//order status
+// export const orderStatus = async (req, res) => {
+//   try {
+//     const { orderId } = req.params;
+//     const { status } = req.body;
+//     const orders = await orderModel.findByIdAndUpdate(
+//       orderId,
+//       { status },
+//       { new: true }
+//     );
+//     res.json(orders);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({
+//       success: false,
+//       message: "Error While Updateing Order",
+//       error,
+//     });
+//   }
+// };
