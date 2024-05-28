@@ -6,6 +6,7 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/Cart";
+import "../styles/Homepage.css";
 
 const Home = () => {
   const [cart, setCart] = useCart();
@@ -119,8 +120,17 @@ const Home = () => {
 
   return (
     <Layout title={"All Products - Best Offers"}>
-      <div className="container-fluid row mt-3">
-        <div className="col-md-2">
+      {/* banner image */}
+      <img
+        src="/images/bannnerrr.png"
+        className="banner-img"
+        alt="bannerimage"
+        width={"100%"}
+        // height={"200px"}
+      />
+      {/* banner image */}
+      <div className="container-fluid row mt-3 home-page">
+        <div className="col-md-2 filters">
           <h5 className="text-center">Filter By Category</h5>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
@@ -176,7 +186,7 @@ const Home = () => {
                     More Details
                   </button>
                   <button
-                    className="btn btn-secondary ms-1"
+                    className="btn btn-dark ms-1"
                     onClick={() => {
                       setCart([...cart, p]);
                       localStorage.setItem(

@@ -24,7 +24,7 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -48,7 +48,7 @@ const Header = () => {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
               <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
+                <NavLink to="/" className="nav-link">
                   Home
                 </NavLink>
               </li>
@@ -68,7 +68,7 @@ const Header = () => {
                     </Link>
                   </li>
                   {categories?.map((c) => (
-                    <li>
+                    <li key={c.slug}>
                       <Link
                         className="dropdown-item"
                         to={`/category/${c.slug}`}
@@ -82,7 +82,7 @@ const Header = () => {
               {!auth.user ? (
                 <>
                   <li className="nav-item">
-                    <NavLink to="/register" className="nav-link ">
+                    <NavLink to="/register" className="nav-link">
                       Register
                     </NavLink>
                   </li>
@@ -97,7 +97,7 @@ const Header = () => {
                   <li className="nav-item dropdown">
                     <NavLink
                       className="nav-link dropdown-toggle"
-                      href="#"
+                      to="#"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"

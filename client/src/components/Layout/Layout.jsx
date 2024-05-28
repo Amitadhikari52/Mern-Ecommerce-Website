@@ -16,23 +16,7 @@ const Layout = ({ children, title, description, keywords, author }) => {
         <title>{title}</title>
       </Helmet>
       <Header />
-      <main style={{ minHeight: "70vh" }}>
-        {/* Set a default duration for toast notifications */}
-        {/* <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-          bodyClassName="toastBody"
-        /> */}
-        {children}
-      </main>
+      <main style={{ minHeight: "70vh" }}>{children}</main>
       <Footer />
     </div>
   );

@@ -28,13 +28,13 @@ const Products = () => {
 
   return (
     <Layout>
-      <div className="row">
+      <div className="row dashboard">
         <div className="col-md-3">
           <AdminMenu />
         </div>
         <div className="col-md-9">
           <h2 className="text-center">All Products list</h2>
-          <div className="d-flex">
+          <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <Link
                 key={p._id}
